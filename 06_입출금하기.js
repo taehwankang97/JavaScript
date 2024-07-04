@@ -35,7 +35,7 @@ function test(){
   //- 확인 클릭 : 입력한 내용 반환
   //- 취소 클릭 : null 반환 
 
-  const pw = prompt("비밀번호를 입력하세요");
+const pw = prompt("비밀번호를 입력하세요");
 
  console.log("password : " , password);
 
@@ -63,6 +63,8 @@ function deposit(){
   balance += Number(amount.value);
   output.innerText = balance;
   amount.value = '';
+  alert(`${value}원 입금되어, ${balance}원 입니다`)
+
 }
 
 
@@ -89,6 +91,5 @@ function deposit(){
   balance -= Number(amount.value);
   output.innerText= balance;
   amount.value = '';
-  alert(`${value}원이 출금되었습니다`)
+  alert(`${value}원이 출금되었습니다 잔액은 ${balance}원 입니다`)
  }
-
