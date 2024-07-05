@@ -82,10 +82,13 @@ function deposit(){
   }
   if(pw!== password){
     alert("비밀번호가 일치 하지 않습니다");
+    amount.value = '';
+    return;
   }
   const value = Number(amount.value);
   if(value > balance){
     alert("잔액이 출금금액 보다 작습니다");
+    amount.value = '';
     return;
   }
   balance -= Number(amount.value);
