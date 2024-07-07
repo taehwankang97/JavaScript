@@ -294,3 +294,150 @@ html += `<li>합계 : ${sum}원</li>`;
 document.getElementById("result24").innerHTML = html
 }
 */
+/* html
+<header>
+    <h1>구구단 표 만들기</h1>
+  </header>
+  <main>
+    시작 단 : <input type="number" id="start">
+    종료 단 : <input type="number" id="end">
+    <button onclick="createTable()">만들기</button>
+    <table border="1">
+      <!-- 테이블 머리(제목)을 작성하는 영역 -->
+      <thead>
+        <tr id="thead-row">
+          <th>2단</th>
+          <th>3단</th>
+          <th>4단</th>
+          <th>5단</th>
+        </tr>
+      </thead>
+      <!-- 테이블 몸통(내용, 데이터)를 작성하는 부분 -->
+      <tbody id="tbody">
+        <tr>
+          <td>2 x 1 = 2</td>
+          <td>3 x 1 = 3</td>
+          <td>4 x 1 = 4</td>
+          <td>5 x 1 = 5</td>
+        </tr>
+        <tr>
+          <td>2 x 2 = 4</td>
+          <td>3 x 2 = 6</td>
+          <td>4 x 2 = 8</td>
+          <td>5 x 2 = 10</td>
+        </tr>
+        <tr>
+          <td>2 x 3 = 6</td>
+          <td>3 x 3 = 9</td>
+          <td>4 x 3 = 12</td>
+          <td>5 x 3 = 15</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+  js
+function createTable(){
+  const startInput = document.getElementById("start");
+  const endInput = document.getElementById("end");
+  const theadRow = document.getElementById("thead-row");
+  const tbody = document.getElementById("tbody");
+  theadRow.innerHTML = '';
+  tbody.innerHTML = '';
+  const start = Number(startInput.value);
+  const end   = Number(endInput.value);
+  for(let dan = start ; dan <= end ; dan++){
+    theadRow.innerHTML += `<th>${dan}단</th>`;
+  }
+  for(let num = 1 ; num <= 9 ; num++){
+    let tr = "<tr>";   // 한 줄을 저장할 변수 선언
+    for(let dan = start ; dan <= end ; dan++){
+      tr += `<td>${dan} x ${num} = ${dan * num}</td>`;
+    }
+    tr += "</tr>";
+    tbody.innerHTML += tr;
+  }
+}
+  */
+/*<button onclick="check2()">무한 반복 멈추기</button>*/
+ /** 무한 반복 멈추기 */
+/*function check2(){
+
+  let sum = 0; // 합계 저장용 변수
+
+  // while문은 () 내 조건식이 true일 때 반복을 수행
+  // -> true라고 작성하면 조건식이 false가 되는 경우가 없음
+  //  -> 무한 반복
+
+  // * 무한 반복하는 코드에는 break를 포함한 if문을 작성해서
+  //  종료 조건을 만들어 두어야만 한다!!!!!!!!!!
+  while(true){ 
+    const value = prompt("숫자 입력"); // 취소 -> null
+
+    // 취소 클릭 시 반복 종료
+    if(value === null) break;
+
+    // 확인 클릭 시 sum에 입력한 숫자를 누적
+    sum += Number(value);
+  }
+
+  alert("합계 : " + sum);
+}
+*/
+/*<button onclick="check3()">continue</button>
+js
+function check3(){
+  for(let num = 1 ; num <= 20 ; num++){
+    if(num % 3 === 0) continue;
+    console.log(num);
+  }
+}
+*/
+/*html
+<button onclick="check4()">continue2</button>
+js
+continue + 중첩 반복문에서의 분기문
+function check4(){
+  for(let row = 1 ; row <= 5 ; row++){ // 행 제어
+    let str = ''; // 문자열 형태로 누적하기 위한 변수 선언
+    for(let col = 1 ; col <= 9 ; col++){ // 열 제어
+      if(row === col) continue; // 감싸고 있는 for문만 건너뜀
+      str += col; // 이어쓰기
+    }
+    console.log(str); // 한 줄 출력
+  }
+} */
+
+  /*<button onclick="startGame()">게임 시작</button>
+
+  function startGame(){
+  const answer = Math.floor( Math.random() * 200 ) + 1;
+  let count = 0;
+  let str = "1부터 200 사이 숫자 입력"; 
+  while(true){ // 무한 반복
+    let input = prompt(str);
+    if(input === null){ // 취소 클릭 시
+      alert("게임 포기");
+      break;
+    }
+    const value = Number(input); // 입력 받은 값 숫자로 변환
+    if( isNaN(value) ){ // 숫자가 아닌 값을 입력한 경우
+      alert("숫자만 입력해 주세요");
+      continue;
+    }
+    if(value < 1 || value > 200){ // 범위 초과
+      alert("1 ~ 200 사이 값만 작성해 주세요");
+      continue;
+    }
+    count++;
+    if(value === answer){
+      alert(`정답 !!! (${answer}) / 시도 횟수 : ${count}`);
+      break;
+    }
+    if(value < answer){ // 작은 경우
+      str = `${value} [UP] / 시도 횟수 : ${count}회`;
+    } else { // 큰 경우
+      str = `${value} [DOWN] / 시도 횟수 : ${count}회`;
+    }
+  }
+}
+*/
