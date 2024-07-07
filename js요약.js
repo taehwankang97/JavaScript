@@ -193,28 +193,6 @@ function check18(){
 12
 1
 </pre>
-js
-<button onclick="check19()">출력하기</button>
- function check19(){
-      for(let row = 5 ; row > 0 ; row --){
-        let str = '';
-        for(let col = 1 ; col <= row ; col ++){
-          str += col;  ;
-        }
-        console.log(str);
-        console.log('--------');
-      }
-    }
-*/
-/*html
-<h4>다음 모양 출력 하기 </h4>
-<pre>
-12345
-1234
-123
-12
-1
-</pre>
 <button onclick="check19()">출력하기</button>
 js
 function check19(){
