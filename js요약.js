@@ -419,3 +419,127 @@ function check4(){
   }
 }
 */
+
+/*html
+ <h3>로또 번호 생성기</h3>
+
+<button onclick="check6()">번호 생성</button>
+<p id="result6"></p>
+ JS
+ function check4() {
+  const arr = new Array(5); //5칸 짜리 배열 생성
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] = Number(prompt(`${i}번째 요소에 저장할 숫자 입력`))
+    sum += arr[i];
+  }
+  console.log("저장된 값 : ", arr);
+  console.log("합계 : ", sum);
+  console.log("평균 : ", sum / arr.length);
+}
+*/
+
+/* HTML
+<h3>
+  점심 메뉴 뽑기 : <span id="menuResult"></span>
+</h3>
+<button onclick="selectMenu()">점심메뉴 뽑기</button>
+JS
+function selectMenu() {
+  const menus = ["라면 + 김밥", "제육볶음",
+    "치즈 돈까스", "샐러드", "맘스터치",
+    "알탕", "돼지국밥", "닭갈비", "뚝배기 불고기",
+    "KFC", "냉면", "콩국수", "쭈꾸미",
+    "초밥", "쌀국수", "김치찜", "고등어구이",
+    "우육탕"
+  ];
+  const randomNumder = Math.floor(Math.random() * menus.length);
+}
+/*  html
+  <h1>name으로 요소 접근하기</h1>
+  <pre>
+  -name 속성은 input 또는 input관련 요소 (select, textarea)만
+    기본 속성으로 가지고 있음
+    input 요소를 한번에 접근하는 용도
+  </pre>
+  <table>
+    <tr>
+      <td>
+        <input type="checkbox" name="hobby" id="game" value="게임">
+        <label for="game">게임</label>
+      </td>
+      <td>
+        <input type="checkbox" name="hobby" id="music" value="음악감상">
+        <label for="music">음악감상</label>
+      </td>
+      <td>
+        <input type="checkbox" name="hobby" id="movie" value="영화감상">
+        <label for="movie">영화감상</label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox" name="hobby" id="coding" value="코딩">
+        <label for="coding">코딩</label>
+      </td>
+      <td>
+        <input type="checkbox" name="hobby" id="exercise" value="운동">
+        <label for="exercise">운동</label>
+      </td>
+      <td>
+        <input type="checkbox" name="hobby" id="book" value="독서">
+        <label for="book">독서</label>
+      </td>
+    </tr>
+  </table>
+<!-- 선택된 취미만 출력 -->
+<div class="name-div"></div>
+<button onclick="nameTest()">출력</button>
+JS
+function nameTest(){
+ const hobbyList =  document.getElementsByName("hobby");
+
+ let str = '';// 체그된 input의 value를 누적
+ let count = 0; // 체크된 input의 개수를 카운트
+
+ // i == 0,1,2,3,4,5 (길이는 6, 마지막 인덱스는 5(길이 -1))
+  for(let i = 0; i<hobbyList.length; i++){
+      if(hobbyList[i].checked === true){
+        //console.log(hobbyList[i].value);
+        str += `${hobbyList[i].value}`
+        count++;
+   }
+  }
+  const div = document.getElementsByClassName("name-div")[0];
+  div.innerHTML =`${str},<br><br>선택된 취미 개수 : ${count}개` 
+}
+ */
+
+/* html
+<h1>CSS 선택자를 이용한 요소 접근 방법</h1>
+<!-- target-div 속성은 만들어낸 속성(기본 속성 X) -->
+<div target-div="css-div">
+<div>test1</div>
+<div>test2</div>
+</div>
+<button onclick="csstest1()">css선택자로 요소 접근</button>
+  <script src="../js/11_요소접근방법.js"></script>
+  JS
+  function csstest1(){
+  const container = document.querySelector('[target-div = css-div]');
+    container.style.width = "200px";
+    container.style.height = "200px";
+    container.style.border = "10px solid orange"
+    const divs =document.querySelectorAll('[target-div = css-div]>div');
+    for(let i = 0; i<divs.length; i++){
+      divs[i].style.height = "50%";
+      divs[i].style.display = "flex";
+      divs[i].style.justifyContent = "center";
+      divs[i].style.alignItems = "center";
+    }
+    divs[0].style.backgroundColor="pink"
+    divs[1].style.backgroundColor="skyblue"
+    const test1 = document.querySelector('[target-div = css-div]>div');
+    test1.style.fontSize = "30px";
+}
+  */
