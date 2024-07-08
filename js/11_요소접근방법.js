@@ -100,7 +100,7 @@ function nameTest(){
       // 
       if(hobbyList[i].checked === true){
         //console.log(hobbyList[i].value);
-        str += `${hobbyList[i].value}`
+        str += `${hobbyList[i].value} `
         count++;
     
    }
@@ -110,7 +110,7 @@ function nameTest(){
   //->요소가 1개밖에 없어도 배열 형태로 변환
   // 0번 인덱스만 별도로 변수에 저장해서 사용
   const div = document.getElementsByClassName("name-div")[0];
-  div.innerHTML =`${str},<br><br>선택된 취미 개수 : ${count}개` 
+  div.innerHTML =`${str}<br><br>선택된 취미 개수 : ${count}개` 
 }
 
 
