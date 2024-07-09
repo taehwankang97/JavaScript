@@ -145,3 +145,49 @@ function csstest1(){
     const test1 = document.querySelector('[target-div = css-div]>div');
     test1.style.fontSize = "30px";
 }
+
+// 카카오톡 만들기 채팅
+function readValue(){
+  const bg = document.querySelector('#chattingBackground');
+  
+  //채팅 입력 되는것 
+  
+  const input = document.querySelector('#userInput');
+
+// 입력된 값이 없을 경우 
+// 1) 진짜로 작성 x
+// 2)작성된 내용이 모두 공백 문자(띄어쓰기, 탭, 엔터)
+// 문자열.trim() : 문자열 좌우 공백을 제거(중간 공백 X)
+if(input.value.trim().length === 0){
+  alert("채팅 내용을 입력해 주세요");
+
+  input.value = ''; // 입력된 공백 제거 
+
+  input.focus(); // input에 다시 포커스
+
+  return;// 함수를 즉시 종료하고 호출한 곳으로 돌아감
+}
+
+// 입력 값을 받아와 입력
+bg.innerHTML += `<p><span>${input.value}</span></p>`;
+
+input.value = ''; // 이전 내용 제거
+input.focus(); // input에 다시 포커스
+
+//bg.scrollHeight : 스크롤되어 가려진 부분까지 포함한 전체 높이
+//bg.scrolltop : 스크롤 위쪽 부분의 현재 위치
+//bg.scrolltop = 값 : 스크롤 위쪽 부분을 "값" 부분으로 이동
+//채팅 화면을 제일 아래로 이동 
+bg.scrollTop = bg.scrollHeight;
+}
+
+/* #userInput 요소에서 키보드로 값 입력중
+"Enter" 입력이 감지 되는 경우  readValue()함수를 호출*/
+document.querySelector("#userInput")
+  .addEventListener("keydown", function(e){
+
+   // console.log(e.key);
+   if(e.key === "Enter"){
+    readValue();
+   }
+  });
