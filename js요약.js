@@ -517,7 +517,6 @@ function nameTest(){
 
 /* html
 <h1>CSS 선택자를 이용한 요소 접근 방법</h1>
-<!-- target-div 속성은 만들어낸 속성(기본 속성 X) -->
 <div target-div="css-div">
 <div>test1</div>
 <div>test2</div>
@@ -543,3 +542,114 @@ function nameTest(){
     test1.style.fontSize = "30px";
 }
   */
+/*HTML 불투명
+   <div class="my-btn1" onclick="check1(this)">
+    인라인 이벤트 모델 확인
+  </div>
+JS
+function check1(btn){
+  console.log(btn);
+  if( isNaN( Number(btn.innerText) )){
+    btn.innerText = 0;
+  } else{
+    btn.innerText++;
+    // btn.innerText = btn.innerText + 1;
+  }
+} 
+ */
+
+/* HTML
+<h3>클릭할 수 록 투명 + 클릭 횟수 증가 </h3>
+<div id="test2">0</div>
+JS
+const test2 = document.querySelector("#test2");
+test2.addEventListener("click",function(){
+  let curr = test2.style.opacity;
+  console.log("curr", curr);
+  if(curr === '') curr =1;
+  test2. style.opacity = curr - 0.05;
+  if(test2.style.opacity < 0){
+    test2.style.opacity = 1;
+}
+})
+test2.addEventListener("click",function(){
+  test2.innerText++;
+})
+
+*/
+/*html
+<h3>클릭한 버든에 작성된 색으로 배경색 변경하기</h3>
+<!-- 배경색 -->
+<div class="test3">
+  <!-- 버튼 영역 -->
+  <div id="result3"></div>
+  <div class="btn-container3">
+    <button>red</button>
+    <button>brown</button>
+    <button>orange</button>
+    <button>yellow</button>
+    <button>green</button>
+    <button>skyblue</button>
+    <button>blue</button>
+    <button>navy</button>
+    <button>purple</button>
+    <button>violet</button>
+    <button>black</button>
+    <button>white</button>
+  </div>
+</div> 
+JS
+const result3 = document.querySelector("#result3");
+const btns 
+  = document.querySelectorAll(".btn-container3 > button");
+for(let i = 0 ; i < btns.length ; i++){
+  btns[i].addEventListener("click", function(){
+    const color = btns[i].innerText;
+    result3.style.backgroundColor = color;
+  })
+}
+ */
+/* html 키 이미지
+<img src="../images/13_입력된 키 확인/짱구.gif"
+id="cursorImage">
+  <div class="container">
+    <div class="key-box">
+      <div class="key">Q</div>
+      <div class="key">W</div>
+      <div class="key">E</div>
+      <div class="key">R</div>
+    </div>
+  </div>
+  JS
+const images= ["짱구.gifㅂ","w.jpg","e.jpg","r.jpg"]
+document.addEventListener("keydown", function(e){
+let index; // 인덱스를 저장할 변수
+  switch(e.key.toLowerCase()){
+    case 'q' : index = 0; break;
+    case 'w' : index = 1; break;
+    case 'e' : index = 2; break;
+    case 'r' : index = 3; break;
+    default : return;
+  }
+  keys[index].style.backgroundImage = `url("../images/13_입력된 키 확인/${images[index]}")`
+  keys[index].style.color = "rgba(0,0,0,0)";
+});
+document.addEventListener("keyup", function(e){
+let index;
+  switch(e.key.toLowerCase()){
+    case 'q':  index = 0; break;
+    case 'w':  index = 1; break;
+    case 'e':  index = 2; break;
+    case 'r':  index = 3; break;
+  }
+  keys[index].style.backgroundImage = "none";
+  keys[index].style.color = "rgba(0,0,0,1)";
+  //keys[index].style.backgroundColor = "white";
+});
+const cusorImage = document.querySelector("#cursorIamge")
+document.addEventListener("mousemove",function(e){
+  cursorImage.style.left = `${e.pageX + 15}px`
+  cursorImage.style.top = `${e.pageY + 15}px`
+})
+
+ */
