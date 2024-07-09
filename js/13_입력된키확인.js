@@ -1,5 +1,5 @@
 //준비한 이미지 파일명을 저장할 배열
-const images= ["짱구.gifㅂ","w.jpg","e.jpg","r.jpg"]
+const images= ["짱구.gif","w.jpg","e.jpg","r.jpg"]
 
 // 클래스가 key인 요소를 모두 얻어와 배열형태로 저장
 const keys = document.querySelectorAll(".key");
