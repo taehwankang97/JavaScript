@@ -47,4 +47,4 @@ changeBtn.addEventListener("click", function(){
     -> innerText, innerHTML
 
 *//* 화면에 존재하는 .box, .color-input 얻어와 변수에 저장  */
-채ㅜ
+
