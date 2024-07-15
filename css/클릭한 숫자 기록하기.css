@@ -29,3 +29,16 @@
 .number:active{
   background-color: orangered;
 }
+
+#call{
+  width: 50px;
+  align-items: center;
+  justify-content: center ;
+}
+
+#call:hover{
+  cursor: pointer;
+}
+#call:active{
+  scale: 0.95;
+}

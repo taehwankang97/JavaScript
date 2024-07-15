@@ -4,8 +4,8 @@ const result = document.querySelector("#result");
 for(let item of numbers){
   item.addEventListener("click", e => {
 
-    if(result.textContent.length == 10){
-      alert("10글자 까지만 입력 가능");
+    if(result.textContent.length == 15){
+      alert("너무 많이 입력했습니다");
       return;
     } 
 
@@ -13,7 +13,14 @@ for(let item of numbers){
   }); 
 }
 
-/* 초기화 버튼 */
+const call = document.querySelector("#call");
+for(){
+  call.addEventListener("click", e=>{
+    alert("요금을 결제해 주세요")
+  })
+}
+
+
 document.querySelector("#resetBtn").addEventListener("click", () => {
   result.textContent = "";
 });
